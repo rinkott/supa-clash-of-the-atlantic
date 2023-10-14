@@ -71,7 +71,7 @@ function Player(props: {
 						<h2
 							className={clsx(
 								props.isRight && 'text-right',
-								'text-3xl text-white font-bold w-full inline-block shadow-2xl'
+								'text-2xl text-white font-bold w-full inline-block shadow-2xl'
 							)}
 						>
 							{props.username}

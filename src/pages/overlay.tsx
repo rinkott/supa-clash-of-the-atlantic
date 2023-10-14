@@ -74,9 +74,9 @@ const LogoWithScore = ({
 }) => {
 	return (
 		<div className="absolute left-0 right-0 top-0 bottom-0 flex gap-11 items-center justify-center">
-			<TeamScore points={pointsNa} pointsMax={7} />
+			<TeamScore points={pointsNa} pointsMax={4} />
 			<Logo className="w-[80px]" />
-			<TeamScore points={pointsEu} pointsMax={7} />
+			<TeamScore points={pointsEu} pointsMax={4} />
 		</div>
 	)
 }

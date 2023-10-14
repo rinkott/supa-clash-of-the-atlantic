@@ -47,6 +47,9 @@ const TeamScores = (props: {
 }) => (
 	<div className="flex gap-[40px]">
 		<div className="flex flex-col text-right">
+			<h1 className="font-bold text-1xl text-red-500 -mb-2">
+				NORTH AMERICA
+			</h1>
 			<h1 className="font-bold text-4xl">
 				{(props.leftTeamAccuracy * 100).toFixed(2)}%
 			</h1>
@@ -59,6 +62,9 @@ const TeamScores = (props: {
 			</h2>
 		</div>
 		<div className="flex flex-col text-left">
+			<h1 className="font-bold text-1xl text-blue-500 -mb-2">
+				EUROPE
+			</h1>
 			<h1 className="font-bold text-4xl">
 				{(props.rightTeamAccuracy * 100).toFixed(2)}%
 			</h1>

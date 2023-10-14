@@ -118,10 +118,12 @@ function Player(props: {
 
 					<div className="flex items-end gap-1">
 						<span className="font-bold leading-none shadow-xl">
-							<NumberAnimation value={props.combo} duration={200} />x
+							{/* <NumberAnimation value={props.combo} duration={200} />x */}
+							<span>{props.combo || 0}x</span>
 						</span>
 						<span className="text-[#EE6161] font-semibold text-sm leading-none shadow-xl">
-							<NumberAnimation value={props.misses} duration={200} />x
+							{/* <NumberAnimation value={props.misses} duration={200} />x */}
+							<span>{props.misses || 0}x</span>
 						</span>
 					</div>
 				</div>

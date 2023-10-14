@@ -56,7 +56,7 @@ function BeatMap(props: { hash?: string; diff?: Difficulty }) {
 			<div className="absolute inset-0 flex items-center pr-14">
 				<div className="flex flex-col justify-center gap-1 p-4">
 					<h2 className="font-poppins text-base font-semibold">
-						<Marquee speed={12} className='max-w-[450px]' play={map && map.name.length > 100}>
+						<Marquee speed={12} className='max-w-[450px]' play={false}>
 							{map?.name}
 						</Marquee>
 					</h2>

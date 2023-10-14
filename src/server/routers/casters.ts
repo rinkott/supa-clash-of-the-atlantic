@@ -21,7 +21,7 @@ const currentlySpeaking = new Map<string, VoiceActivity>()
 
 const currentCasters = new Map<string, Caster>([
 	['123', { name: 'Player_no_Name', discordId: '123' }],
-	['456', { name: 'Isxen', discordId: '456' }],
+	['456', { name: 'Ixsen', discordId: '456' }],
 ])
 
 export const casterRouter = router({

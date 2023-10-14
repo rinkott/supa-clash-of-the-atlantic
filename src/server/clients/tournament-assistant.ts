@@ -2,7 +2,7 @@ import { Client, Models, Packets } from 'tournament-assistant-client'
 import EventEmitter from 'events'
 import TypedEmitter from 'typed-emitter'
 import { z } from 'zod'
-import { SignupPlayer, getSignupPlayer } from '~/utils/signups'
+import { SignupPlayer, getSignupPlayer } from '../../utils/signups'
 
 export type SerializedTAPlayer = ReturnType<Models.User['toObject']>
 export type SerializedTAMatch = ReturnType<Models.Match['toObject']>

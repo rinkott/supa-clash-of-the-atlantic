@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "lint": "eslint --cache --ext \".js,.ts,.tsx\" --report-unused-disable-directives src",
-    "start": "next start"
+    "build:client": "next build",
+    "build:server": "tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/server/prodServer.js",
+    "start:server": "pnpm dlx tsx src/server/wsServer.ts",
+    "start:client": "next start"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",

@@ -77,8 +77,8 @@ const TeamScores = (props: {
 			</h2>
 		</div>
 
-		<div className='absolute opacity-80 -bottom-5 left-1/2 transform -translate-x-1/2 font-bold text-sm'>
-			DIFF {Math.abs(props.leftTeamAccuracy - props.rightTeamAccuracy)} ({Math.abs(props.leftTeamAccuracy - props.rightTeamAccuracy) * 100}%)
+		<div className='absolute opacity-80 -bottom-5 left-1/2 transform -translate-x-1/2 font-bold text-sm whitespace-nowrap'>
+			{Math.abs(props.leftTeamScore - props.rightTeamScore)} ({(Math.abs(props.leftTeamAccuracy - props.rightTeamAccuracy) * 100).toFixed(2)}%)
 		</div>
 	</div>
 )

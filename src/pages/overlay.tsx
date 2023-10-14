@@ -48,12 +48,14 @@ const FilledStar = () => (
 const TeamScore = ({
 	points,
 	pointsMax,
+	reversed
 }: {
 	points: number
 	pointsMax: number
+	reversed?: boolean
 }) => (
 	<div className="flex items-center justify-center">
-		<div className="flex gap-3">
+		<div className={clsx('flex gap-3', reversed && 'flex-row-reverse')}>
 			{Array.from({ length: pointsMax }).map((_, i) => (
 				<div key={i} className="w-[37px] h-[35px]">
 					{i < points ? <FilledStar /> : <EmptyStar />}
@@ -74,7 +76,7 @@ const LogoWithScore = ({
 }) => {
 	return (
 		<div className="absolute left-0 right-0 top-0 bottom-0 flex gap-11 items-center justify-center">
-			<TeamScore points={pointsNa} pointsMax={4} />
+			<TeamScore points={pointsNa} pointsMax={4} reversed />
 			<Logo className="w-[80px]" />
 			<TeamScore points={pointsEu} pointsMax={4} />
 		</div>

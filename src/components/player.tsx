@@ -71,7 +71,7 @@ function Player(props: {
 						<h2
 							className={clsx(
 								props.isRight && 'text-right',
-								'text-2xl text-white font-bold w-full inline-block shadow-2xl'
+								'text-3xl text-white font-bold w-full inline-block shadow-2xl'
 							)}
 						>
 							{props.username}
@@ -109,7 +109,7 @@ function Player(props: {
 				<div
 					className={clsx(
 						!props.isRight && 'items-end',
-						'flex flex-col font-poppins justify-center text-[20px] z-20'
+						'flex flex-col font-poppins justify-center text-[25px] z-20'
 					)}
 				>
 					<span className="font-medium leading-none">

@@ -45,7 +45,7 @@ function Intermission() {
 	const timeLeft = countdown ? `${String(fullMinutes).padStart(2, '0')}:${String(seconds - fullMinutes  * 60).padStart(2, '0')}` : null
 
 	return (
-		<main className="w-screen h-screen bg-black flex items-center flex-col bg-dots pt-32 text-white">
+		<main className="w-screen h-screen bg-black flex items-center flex-col pt-32 text-white">
 			<div className="mb-32">
 				<Logo className="w-[946px]" />
 			</div>

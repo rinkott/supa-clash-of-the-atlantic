@@ -63,12 +63,20 @@ const TeamScore = ({
 	</div>
 )
 
-const LogoWithScore = () => {
+const LogoWithScore = ({
+	pointsNa,
+	pointsEu,
+	pointsMax,
+}: {
+	pointsNa: number,
+	pointsEu: number,
+	pointsMax?: number
+}) => {
 	return (
 		<div className="absolute left-0 right-0 top-0 bottom-0 flex gap-11 items-center justify-center">
-			<TeamScore points={3} pointsMax={5} />
+			<TeamScore points={pointsNa} pointsMax={7} />
 			<Logo className="w-[80px]" />
-			<TeamScore points={2} pointsMax={5} />
+			<TeamScore points={pointsEu} pointsMax={7} />
 		</div>
 	)
 }
@@ -156,12 +164,25 @@ function Overlay() {
 	const teamEuropeAvgAcc = rosterEurope.map((id) => latestScores[id]?.data.accuracy).reduce((a, b) => a + b, 0) / rosterEurope.length
 	const teamNorthAmericaAvgAcc = rosterNorthAmerica.map((id) => latestScores[id]?.data.accuracy).reduce((a, b) => a + b, 0) / rosterNorthAmerica.length
 
+	const [teamEuropePoints, setTeamEuropePoints] = useState(0)
+	const [teamNorthAmericaPoints, setTeamNorthAmericaPoints] = useState(0)
+
+	trpc.match.subscribeToPoints.useSubscription(null, {
+		onData(data) {
+			setTeamEuropePoints(data['EU'])
+			setTeamNorthAmericaPoints(data['NA'])
+		}
+	})
+
 	return (
 		<div className="relative w-[1920px] h-[1080px] bg-black">
 			<Header isDark>
 				<div className="relative w-full flex items-center justify-between px-12">
 					<TeamName>NORTH AMERICA</TeamName>
-					<LogoWithScore />
+					<LogoWithScore
+						pointsNa={teamNorthAmericaPoints || 0}
+						pointsEu={teamEuropePoints || 0}
+					/>
 					<TeamName>EUROPE</TeamName>
 				</div>
 			</Header>

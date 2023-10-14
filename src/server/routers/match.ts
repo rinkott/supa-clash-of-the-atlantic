@@ -43,6 +43,17 @@ type RosterUpdateInput = {
 
 const rostersEE = new EventEmitter() as TypedEmitter<RosterEvents>
 
+type PointUpdateInput = {
+	points: number
+	team: Team
+}
+
+type PointEvents = {
+	updatePoints: (points: PointUpdateInput) => void
+}
+
+const pointsEE = new EventEmitter() as TypedEmitter<PointEvents>
+
 export const matchRouter = router({
 	subscribeToScores: publicProcedure
 		.input(() => null)
@@ -104,10 +115,7 @@ export const matchRouter = router({
 		}),
 
 	setPoints: publicProcedure
-		.input((i) => i as {
-			team: Team
-			points: number
-		})
+		.input((i) => i as PointUpdateInput)
 		.mutation(({ input }) => {
 			if (input.points > currentMaxPoints) {
 				return false
@@ -115,8 +123,30 @@ export const matchRouter = router({
 
 			points[input.team] = input.points
 
+			pointsEE.emit('updatePoints', points)
+
 			return true
 		}),
+	
+	subscribeToPoints: publicProcedure
+		.input(() => null)
+		.subscription(() => {
+			return observable<TeamPoints>((emit) => {
+				function broadcastPoints(input: PointUpdateInput) {
+					points[input.team] = input.points
+
+					emit.next(points)
+				}
+
+				emit.next(points)
+
+				pointsEE.on('updatePoints', broadcastPoints)
+				return () => {
+					pointsEE.off('updatePoints', broadcastPoints)
+				}
+			})
+		}),
+		
 	
 	setMaxPoints: publicProcedure
 		.input((i) => i as number)

@@ -123,7 +123,7 @@ function Player(props: {
 
 				{props.streamEnabled && (
 					<iframe
-						src={`https://player.twitch.tv/?channel=${props.twitchUsername}&parent=localhost`}
+						src={`https://player.twitch.tv/?channel=${props.twitchUsername}&parent=cota.horny.cat&muted=${!props.unmuted}`}
 						className="absolute inset-0 w-[730px] h-[410px] z-10 left-[50%] transform translate-x-[-50%]"
 					></iframe>
 				)}

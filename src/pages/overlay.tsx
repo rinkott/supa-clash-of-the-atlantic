@@ -189,7 +189,7 @@ function Overlay() {
 
 			<div className={clsx(is3v3 && 'flex-col', 'flex w-screen')}>
 				<PlayerGrid>
-					{rosterEurope.map((id) => {
+					{rosterEurope.map((id, i) => {
 						const scoreForPlayer = latestScores[id]
 						const signupPlayer = getSignupPlayer(id)
 
@@ -206,7 +206,8 @@ function Overlay() {
 								avatarLink={`https://cdn.scoresaber.com/avatars/${id}.jpg`}
 								platformId={id}
 
-								unmuted={false}
+								unmuted={i === 0}
+								streamEnabled
 							/>
 						)
 					})}
@@ -233,6 +234,7 @@ function Overlay() {
 								isRight={!is3v3}
 
 								unmuted={false}
+								streamEnabled
 							/>
 						)
 					})}

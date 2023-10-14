@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { ReactEventHandler, useEffect } from 'react'
 import NumberAnimation from './number-animation'
 import clsx from 'clsx'
 import { toTwemojiFlag } from '~/utils/twemoji'
@@ -24,6 +24,10 @@ function Player(props: {
 	streamEnabled?: boolean
 }) {
 	const { player } = useBeatLeaderPlayer(props.platformId)
+
+	const onError: ReactEventHandler<HTMLImageElement> = (e) => {
+		e.currentTarget.src = 'https://cdn.scoresaber.com/avatars/oculus.png'
+	}
 
 	return (
 		<div
@@ -60,6 +64,7 @@ function Player(props: {
 							props.isMvp && 'border-4 border-yellow-300',
 							'w-11 h-11 rounded-full shadow-xl transition-all delay-500'
 						)}
+						onError={onError}
 					/>
 
 					<div className="flex flex-col">

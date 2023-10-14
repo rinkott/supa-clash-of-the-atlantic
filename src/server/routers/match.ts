@@ -20,7 +20,7 @@ type SelectedRosters = Record<Team, string[]>
 
 const rosters: SelectedRosters = {
 	EU: ['76561198313983208', '76561198988695829', '76561198180044686',],
-	NA: ['76561198299618436', '76561198166289091', '76561198374714658',],
+	NA: ['76561198299618436', '1922350521131465', '76561198374714658',],
 }
 
 type TeamPoints = Record<Team, number>

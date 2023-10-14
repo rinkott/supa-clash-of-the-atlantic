@@ -48,9 +48,9 @@ const TeamScores = (props: {
 	<div className="flex gap-[40px]">
 		<div className="flex flex-col text-right">
 			<h1 className="font-bold text-1xl text-red-500 -mb-2">
-				NORTH AMERICA
+				NA
 			</h1>
-			<h1 className="font-bold text-4xl">
+			<h1 className="font-bold text-4xl -mb-1">
 				{(props.leftTeamAccuracy * 100).toFixed(2)}%
 			</h1>
 			<h2 className="font-bold text-[20px]">
@@ -63,9 +63,9 @@ const TeamScores = (props: {
 		</div>
 		<div className="flex flex-col text-left">
 			<h1 className="font-bold text-1xl text-blue-500 -mb-2">
-				EUROPE
+				EU
 			</h1>
-			<h1 className="font-bold text-4xl">
+			<h1 className="font-bold text-4xl -mb-1">
 				{(props.rightTeamAccuracy * 100).toFixed(2)}%
 			</h1>
 			<h2 className="font-bold text-[20px]">
@@ -75,6 +75,10 @@ const TeamScores = (props: {
 					duration={200}
 				/>
 			</h2>
+		</div>
+
+		<div className='absolute opacity-80 -bottom-5 left-1/2 transform -translate-x-1/2 font-bold text-sm'>
+			DIFF {Math.abs(props.leftTeamAccuracy - props.rightTeamAccuracy)} ({Math.abs(props.leftTeamAccuracy - props.rightTeamAccuracy) * 100}%)
 		</div>
 	</div>
 )

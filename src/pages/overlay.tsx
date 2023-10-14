@@ -101,20 +101,17 @@ enum TADifficulty {
 	'ExpertPlus' = 4,
 }
 
-const PlayerGrid = ({
-	is3v3,
-	children,
-}: {
+const PlayerGrid = (props: {
 	is3v3?: boolean
 	children: React.ReactNode
 }) => (
 	<div
 		className={clsx(
-			is3v3 ? 'grid-cols-3 w-[1920px]' : 'grid-cols-2 grid-rows-2 w-[50vw]',
+			props.is3v3 ? 'grid-cols-3 w-[1920px]' : 'grid-cols-2 grid-rows-2 w-[50vw]',
 			'grid gap-0'
 		)}
 	>
-		{children}
+		{props.children}
 	</div>
 )
 
@@ -188,7 +185,7 @@ function Overlay() {
 			</Header>
 
 			<div className={clsx(is3v3 && 'flex-col', 'flex w-screen')}>
-				<PlayerGrid>
+				<PlayerGrid is3v3={is3v3}>
 					{rosterEurope.map((id, i) => {
 						const scoreForPlayer = latestScores[id]
 						const signupPlayer = getSignupPlayer(id)
@@ -213,7 +210,7 @@ function Overlay() {
 					})}
 				</PlayerGrid>
 
-				<PlayerGrid>
+				<PlayerGrid is3v3={is3v3}>
 					{rosterNorthAmerica.map((id) => {
 						const scoreForPlayer = latestScores[id]
 						const signupPlayer = getSignupPlayer(id)

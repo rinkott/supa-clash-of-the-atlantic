@@ -94,9 +94,9 @@ export const matchRouter = router({
 	setRoster: publicProcedure
 		.input((i) => i as RosterUpdateInput)
 		.mutation((i) => {
-			const { roster, forRegion } = i.input
+			const { roster, team } = i.input
 
-			rosters[forRegion] = roster
+			rosters[team] = roster
 
 			rostersEE.emit('updateRosters', rosters)
 

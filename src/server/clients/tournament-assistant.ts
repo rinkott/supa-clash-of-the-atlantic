@@ -74,19 +74,19 @@ export class TournamentAssistantClient {
 				`Player ${data.name} joined the server. Signup player: ${signupPlayer}`
 			)
 
-			if (!signupPlayer) {
-				this.taClient?.sendMessage(
-					[data.guid],
+			// if (!signupPlayer) {
+			// 	this.taClient?.sendMessage(
+			// 		[data.guid],
 
-					new Packets.Command.ShowModal({
-						message_title: 'Error',
-						message_text:
-							'You are not registered as a player\nfor this tournament.\nYou can leave the server.',
-						can_close: false,
-					})
-				)
-				return
-			}
+			// 		new Packets.Command.ShowModal({
+			// 			message_title: 'Error',
+			// 			message_text:
+			// 				'You are not registered as a player\nfor this tournament.\nYou can leave the server.',
+			// 			can_close: false,
+			// 		})
+			// 	)
+			// 	return
+			// }
 		})
 
 		this.taClient.on('realtimeScore', ({ data }) => {

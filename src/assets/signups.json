@@ -1,0 +1,210 @@
+[
+    {
+        "discordId": ".mabe.",
+        "username": "Mabe",
+        "platformId": "76561198843522732",
+        "type": "CAPTAIN",
+        "twitchUsername": "",
+        "team": "EU"
+    },
+    {
+        "discordId": "drakonno",
+        "username": "Drakonno",
+        "platformId": "76561198025451538",
+        "type": "CAPTAIN",
+        "twitchUsername": "",
+        "team": "EU"
+    },
+    {
+        "discordId": "flor",
+        "username": "flor",
+        "platformId": "76561198072602937",
+        "type": "TECH",
+        "twitchUsername": "flor_salvas",
+        "team": "EU"
+    },
+    {
+        "discordId": ".tranch",
+        "username": "Tranch",
+        "platformId": "76561198313983208",
+        "type": "TECH",
+        "twitchUsername": "raveave",
+        "team": "EU"
+    },
+    {
+        "discordId": "olbma",
+        "username": "Olbma",
+        "platformId": "76561198988695829",
+        "type": "TECH",
+        "twitchUsername": "olbmaphlee1",
+        "team": "EU"
+    },
+    {
+        "discordId": "gustav.dk",
+        "username": "Gustav",
+        "platformId": "76561198075605706",
+        "type": "TECH",
+        "twitchUsername": "gustavsnedker",
+        "team": "EU"
+    },
+    {
+        "discordId": "coolingcloset",
+        "username": "CoolingCloset",
+        "platformId": "76561198180044686",
+        "type": "TECH",
+        "twitchUsername": "coolingcloset",
+        "team": "EU"
+    },
+    {
+        "discordId": "tseska",
+        "username": "Tseska",
+        "platformId": "76561198362923485",
+        "type": "TECH",
+        "twitchUsername": "tseska_",
+        "team": "EU"
+    },
+    {
+        "discordId": "crusader.pepe",
+        "username": "Crusader.Pepe",
+        "platformId": "76561198167372371",
+        "type": "ACCURACY",
+        "twitchUsername": "crusaderpepe",
+        "team": "EU"
+    },
+    {
+        "discordId": "racb",
+        "username": "Rac",
+        "platformId": "76561198318835649",
+        "type": "ACCURACY",
+        "twitchUsername": "raacc_",
+        "team": "EU"
+    },
+    {
+        "discordId": "linjay.",
+        "username": "LinJay",
+        "platformId": "76561198033416987",
+        "type": "ACCURACY",
+        "twitchUsername": "linjay___",
+        "team": "EU"
+    },
+    {
+        "discordId": "senseiwu",
+        "username": "Sensei WU",
+        "platformId": "76561198400393482",
+        "type": "ACCURACY",
+        "twitchUsername": "tmbs_senseiwu",
+        "team": "EU"
+    },
+    {
+        "discordId": "viking._.",
+        "username": "viking",
+        "platformId": "76561198299618436",
+        "type": "ACCURACY",
+        "twitchUsername": "mathiastheviking",
+        "team": "EU"
+    },
+    {
+        "discordId": ".rocker",
+        "username": "Rocker",
+        "platformId": "76561198166289091",
+        "type": "ACCURACY",
+        "twitchUsername": "rocker1904",
+        "team": "EU"
+    },
+    {
+        "discordId": "alexto1301",
+        "username": "Alexto1301",
+        "platformId": "76561198815073446",
+        "type": "CHALLENGE",
+        "twitchUsername": "alexto1301",
+        "team": "EU"
+    },
+    {
+        "discordId": "zodolord",
+        "username": "Zodolord",
+        "platformId": "76561198374714658",
+        "type": "CHALLENGE",
+        "twitchUsername": "zodolord",
+        "team": "EU"
+    },
+    {
+        "discordId": "bugbugbug_",
+        "username": "Bug",
+        "platformId": "76561198810052126",
+        "type": "CHALLENGE",
+        "twitchUsername": "wdg_bug",
+        "team": "EU"
+    },
+    {
+        "discordId": "la_rizette",
+        "username": "Risi",
+        "platformId": "76561198964267559",
+        "type": "CHALLENGE",
+        "twitchUsername": "la_rizette",
+        "team": "EU"
+    },
+    {
+        "discordId": "lun4_4",
+        "username": "Luna",
+        "platformId": "76561198143262090",
+        "type": "CHALLENGE",
+        "twitchUsername": "wdg_luna",
+        "team": "EU"
+    },
+    {
+        "discordId": "brase",
+        "username": "Brase",
+        "platformId": "76561199116794382",
+        "type": "CHALLENGE",
+        "twitchUsername": "brase_bs",
+        "team": "EU"
+    },
+    {
+        "discordId": "WalkingKat",
+        "username": "WalkingKat",
+        "platformId": "76561197997028786",
+        "type": "SPEED",
+        "twitchUsername": "walkingkat",
+        "team": "EU"
+    },
+    {
+        "discordId": "luackci",
+        "username": "Luck",
+        "platformId": "76561198366737508",
+        "type": "SPEED",
+        "twitchUsername": "luackci",
+        "team": "EU"
+    },
+    {
+        "discordId": "voytech",
+        "username": "VoyTech",
+        "platformId": "76561198265369367",
+        "type": "SPEED",
+        "twitchUsername": "mr_voytech",
+        "team": "EU"
+    },
+    {
+        "discordId": "_smallfox",
+        "username": "Smallfox",
+        "platformId": "2085408448198355",
+        "type": "SPEED",
+        "twitchUsername": "smallfoxperhaps2",
+        "team": "EU"
+    },
+    {
+        "discordId": "nailiklp",
+        "username": "nailik lp",
+        "platformId": "2769016623220259",
+        "type": "SPEED",
+        "twitchUsername": "nailiklp",
+        "team": "EU"
+    },
+    {
+        "discordId": "aquaflee",
+        "username": "Aquaflee",
+        "platformId": "76561198960449289",
+        "type": "SPEED",
+        "twitchUsername": "aquaflee",
+        "team": "EU"
+    }
+]

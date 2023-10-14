@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Druk Wide";
+  src: url("../public/fonts/Druk-Wide-Bold.ttf");
+}
+
+html {
+  width: 1920px;
+  height: 1080px;
+  background: black;
+}
+
+.outline-text {
+  -webkit-text-stroke: .06em #fff;
+}
+
+.outline-text-l {
+  -webkit-text-stroke: .04em #fff;
+}
+
+.bg-beatsaver-green {
+  background-color: #008055;
+}
+
+.bg-beatsaver-blue {
+  background-color: #1268a1;
+}
+
+.bg-beatsaver-orange {
+  background-color: #bd5500;
+}
+
+.bg-beatsaver-red {
+  background-color: #b52a1c;
+}
+
+.bg-beatsaver-purple {
+  background-color: #7646af;
+}

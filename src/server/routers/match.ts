@@ -123,7 +123,7 @@ export const matchRouter = router({
 
 			points[input.team] = input.points
 
-			pointsEE.emit('updatePoints', points)
+			pointsEE.emit('updatePoints', input)
 
 			return true
 		}),

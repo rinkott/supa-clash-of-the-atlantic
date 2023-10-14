@@ -19,7 +19,7 @@ const { publicRuntimeConfig } = getConfig()
 function getEndingLink(ctx: NextPageContext | undefined) {
 	if (typeof window === 'undefined') {
 		return httpBatchLink({
-			url: 'localhost:3000/api/trpc',
+			url: process.env.NODE_ENV !== 'production' ? 'localhost:3000/api/trpc' : 'https://cota.horny.cat/api/trpc',
 			headers() {
 				if (!ctx?.req?.headers) {
 					return {}
@@ -33,7 +33,7 @@ function getEndingLink(ctx: NextPageContext | undefined) {
 	}
 
 	const client = createWSClient({
-		url: 'ws://localhost:3001',
+		url: process.env.NODE_ENV !== 'production' ? 'ws://localhost:3001' : 'wss://cota.horny.cat/ws',
 	})
 
 	return wsLink<AppRouter>({

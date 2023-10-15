@@ -209,7 +209,7 @@ function Overlay() {
 						pointsEu={teamEuropePoints || 0}
 						pointsMax={4}
 
-						category='Challenge'
+						category='Balanced'
 					/>
 					<TeamName>EUROPE</TeamName>
 				</div>

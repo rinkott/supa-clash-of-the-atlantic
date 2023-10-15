@@ -3,6 +3,7 @@ import BeatMap, { Difficulty } from './beatmap'
 
 import LogoText from '../assets/logo-text-scaled.svg'
 import NumberAnimation from './number-animation'
+import clsx from 'clsx'
 
 const TugOfWar = (props: {
 	/**
@@ -51,7 +52,14 @@ const TeamScores = (props: {
 	rankBy?: 'misses' | 'accuracy'
 }) => (
 	<div className="flex gap-[40px] pb-4 justify-center">
-		<div className="flex flex-col text-right w-[150px]">
+		<div
+			className={clsx(
+				props.rankBy === 'misses' &&
+					(props.leftTeamMisses < props.rightTeamMisses) &&
+					'scale-125 -translate-x-5',
+				'flex flex-col text-right w-[150px] transform transition-all delay-200'
+			)}
+		>
 			<h1 className="font-bold text-1xl text-red-500 -mb-2">NA</h1>
 			<h1 className="font-bold text-4xl -mb-1">
 				{props.rankBy !== 'misses'
@@ -66,7 +74,14 @@ const TeamScores = (props: {
 				/>
 			</h2>
 		</div>
-		<div className="flex flex-col text-left w-[150px]">
+		<div
+			className={clsx(
+				props.rankBy === 'misses' &&
+					(props.rightTeamMisses < props.leftTeamMisses) &&
+					'scale-125 translate-x-5',
+				'flex flex-col text-left w-[150px] transform transition-all delay-200'
+			)}
+		>
 			<h1 className="font-bold text-1xl text-blue-500 -mb-2">EU</h1>
 			<h1 className="font-bold text-4xl -mb-1">
 				{props.rankBy !== 'misses'
@@ -118,13 +133,17 @@ function Footer(props: {
 	return (
 		<>
 			<div className="w-full relative h-[133px] font-poppins text-white bg-footer-bar bg-cover bg-no-repeat z-30">
-				<TugOfWar
+				{ props.rankBy !== 'misses' ? <TugOfWar
 					leftTeamAccuracy={props.leftTeamAccuracy}
 					rightTeamAccuracy={props.rightTeamAccuracy}
-				/>
+				/> : null }
 
 				<div className="w-full h-full absolute inset-0 justify-between items-center px-9 flex">
-					<BeatMap hash={props.mapHash} diff={props.diff} mapProgress={props.mapProgress} />
+					<BeatMap
+						hash={props.mapHash}
+						diff={props.diff}
+						mapProgress={props.mapProgress}
+					/>
 
 					<div className="absolute left-[50%] transform translate-x-[-50%]">
 						<TeamScores

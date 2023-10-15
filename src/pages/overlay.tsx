@@ -217,7 +217,7 @@ function Overlay() {
 
 			<div className={clsx(is3v3 && 'flex-col', 'flex w-screen')}>
 				<PlayerGrid is3v3={is3v3}>
-					{rosterEurope.map((id, i) => {
+					{rosterNorthAmerica.map((id, i) => {
 						const scoreForPlayer = latestScores[id]
 						const signupPlayer = getSignupPlayer(id)
 
@@ -247,7 +247,7 @@ function Overlay() {
 				</PlayerGrid>
 
 				<PlayerGrid is3v3={is3v3}>
-					{rosterNorthAmerica.map((id) => {
+					{rosterEurope.map((id) => {
 						const scoreForPlayer = latestScores[id]
 						const signupPlayer = getSignupPlayer(id)
 

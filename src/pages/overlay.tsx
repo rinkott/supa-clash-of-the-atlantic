@@ -291,7 +291,7 @@ function Overlay() {
 
 				mapProgress={latestScores[rosterEurope[0]]?.data.songPosition || 0}
 
-				// rankBy='misses'
+				rankBy='misses'
 			/>
 		</div>
 	)

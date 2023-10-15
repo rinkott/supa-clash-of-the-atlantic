@@ -41,7 +41,21 @@ function Intermission() {
 	})
 
 	return (
-		<main className="w-screen h-screen bg-black flex items-center flex-col pt-32 text-white">
+		<main className="w-screen h-screen bg-black flex items-center flex-col text-white">
+			<header className="w-full font-druk text-white text-2xl flex justify-between uppercase mb-40 p-8">
+				<div>
+					<span className="outline-text text-transparent">DEVELOPED BY</span>
+					&nbsp; <span className='mb-3'>@rinkott</span> &nbsp;<br></br>
+					<span className="outline-text text-transparent">STREAM WIDGETS BY</span>
+					&nbsp; @hawk_bs &nbsp;
+				</div>
+				<div className='text-right'>
+					<span className="outline-text text-transparent">DESIGNED BY</span>
+					&nbsp; @hawk_bs, @gettkd,
+					<br></br>
+					@adqm & @MCATU3
+				</div>
+			</header>
 			<div className="mb-32">
 				<Logo className="w-[946px]" />
 			</div>

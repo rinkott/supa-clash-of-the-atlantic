@@ -153,7 +153,6 @@ function Controls() {
 						<h1 className="mb-0">Rosters</h1>
 						<sub className="text-sm font-medium">
 							Input player ids separated with {'","'}<br></br>
-							(CHANGE BEFORE SWITCHING TO ROSTER VIEW)
 						</sub>
 					</>
 				}

@@ -207,7 +207,7 @@ function Overlay() {
 					<LogoWithScore
 						pointsNa={teamNorthAmericaPoints || 0}
 						pointsEu={teamEuropePoints || 0}
-						pointsMax={4}
+						pointsMax={5}
 
 						category='Balanced'
 					/>

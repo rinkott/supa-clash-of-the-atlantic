@@ -32,14 +32,14 @@ function Player(props: {
 	return (
 		<div
 			className={clsx(
-				props.isMvp && 'shadow-mvp z-10 border-2 border-yellow-300',
-				'w-[100%] h-[400px] flex p-4 relative transition-shadow duration-500 overflow-hidden'
+				props.isMvp && 'z-10',
+				'w-[100%] h-[400px] flex p-4 relative transition-shadow overflow-hidden'
 			)}
 		>
 			<div
 				className={clsx(
 					props.isMvp && 'opacity-100',
-					'opacity-0 absolute top-0 left-[50%] z-30 transform translate-x-[-50%] bg-yellow-300 font-bold px-2 py-[3px] text-sm rounded-b-md transition-opacity duration-500 text-black'
+					'opacity-0 absolute top-0 left-[50%] z-30 transform translate-x-[-50%] bg-yellow-300 font-bold px-4 py-[3px] text-sm rounded-b-md transition-opacity duration-200 text-black'
 				)}
 			>
 				MVP
@@ -62,7 +62,7 @@ function Player(props: {
 						src={props.avatarLink}
 						className={clsx(
 							props.isMvp && 'border-4 border-yellow-300',
-							'w-11 h-11 rounded-full shadow-xl transition-all delay-500'
+							'w-11 h-11 rounded-full shadow-xl transition-all duration-200'
 						)}
 						onError={onError}
 					/>
@@ -70,8 +70,9 @@ function Player(props: {
 					<div className="flex flex-col">
 						<h2
 							className={clsx(
+								props.isMvp && 'text-yellow-300',
 								props.isRight && 'text-right',
-								'text-2xl text-white font-bold w-full inline-block shadow-2xl'
+								'text-2xl text-white font-bold w-full inline-block [text-shadow:_0_1px_10px_rgb(0_0_0_/_20%)] transition-colors duration-200'
 							)}
 						>
 							{props.username}
@@ -109,7 +110,7 @@ function Player(props: {
 				<div
 					className={clsx(
 						!props.isRight && 'items-end',
-						'flex flex-col font-poppins justify-center text-[25px] z-20'
+						'flex flex-col font-poppins justify-center text-[25px] z-20 [text-shadow:_0_1px_10px_rgb(0_0_0_/_30%)]'
 					)}
 				>
 					<span className="font-medium leading-none">
@@ -117,11 +118,11 @@ function Player(props: {
 					</span>
 
 					<div className="flex items-end gap-1">
-						<span className="font-bold leading-none shadow-xl">
+						<span className="font-bold leading-none">
 							{/* <NumberAnimation value={props.combo} duration={200} />x */}
 							<span>{props.combo || 0}x</span>
 						</span>
-						<span className="text-[#EE6161] font-semibold text-sm leading-none shadow-xl">
+						<span className="text-[#EE6161] font-semibold text-sm leading-none">
 							{/* <NumberAnimation value={props.misses} duration={200} />x */}
 							<span>{props.misses || 0}x</span>
 						</span>

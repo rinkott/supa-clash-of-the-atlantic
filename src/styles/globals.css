@@ -7,10 +7,23 @@
   src: url("../public/fonts/Druk-Wide-Bold.ttf");
 }
 
+* {
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 html {
   width: 1920px;
   height: 1080px;
   background: black;
+}
+
+.outline-text-sm {
+  -webkit-text-stroke: .1em #fff;
 }
 
 .outline-text {

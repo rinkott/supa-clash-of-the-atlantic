@@ -19,8 +19,8 @@ const taInterface = new TournamentAssistantClient(
 type SelectedRosters = Record<Team, string[]>
 
 const rosters: SelectedRosters = {
-	EU: ['76561198313983208', '76561198988695829', '76561198180044686',],
-	NA: ['76561198299618436', '1922350521131465', '76561198374714658',],
+	EU: ['76561198072602937', '76561198313983208', '76561198988695829',],
+	NA: ['76561198299618436', '1922350521131465', '76561198153101808',],
 }
 
 type TeamPoints = Record<Team, number>

@@ -48,7 +48,7 @@ const FilledStar = () => (
 const TeamScore = ({
 	points,
 	pointsMax,
-	reversed
+	reversed,
 }: {
 	points: number
 	pointsMax: number
@@ -69,16 +69,25 @@ const LogoWithScore = ({
 	pointsNa,
 	pointsEu,
 	pointsMax,
+	category,
 }: {
-	pointsNa: number,
-	pointsEu: number,
-	pointsMax?: number
+	pointsNa: number
+	pointsEu: number
+	pointsMax: number
+
+	category?: string
 }) => {
 	return (
 		<div className="absolute left-0 right-0 top-0 bottom-0 flex gap-11 items-center justify-center">
-			<TeamScore points={pointsNa} pointsMax={4} reversed />
-			<Logo className="w-[80px]" />
-			<TeamScore points={pointsEu} pointsMax={4} />
+			<TeamScore points={pointsNa} pointsMax={pointsMax} reversed />
+			<div className='flex flex-col items-center gap-2'>
+				<Logo className="w-[80px]" />
+
+				<span className="text-sm outline-text-sm spacing tracking-wider uppercase">
+					{category}
+				</span>
+			</div>
+			<TeamScore points={pointsEu} pointsMax={pointsMax} />
 		</div>
 	)
 }
@@ -103,19 +112,20 @@ enum TADifficulty {
 	'ExpertPlus' = 4,
 }
 
-const PlayerGrid = (props: {
-	is3v3?: boolean
-	children: React.ReactNode
-}) => (
+const PlayerGrid = (props: { is3v3?: boolean; children: React.ReactNode }) => (
 	<div
 		className={clsx(
-			props.is3v3 ? 'grid-cols-3 w-[1920px]' : 'grid-cols-2 grid-rows-2 w-[50vw]',
+			props.is3v3
+				? 'grid-cols-3 w-[1920px]'
+				: 'grid-cols-2 grid-rows-2 w-[50vw]',
 			'grid gap-0'
 		)}
 	>
 		{props.children}
 	</div>
 )
+
+const sum = (a: number, b: number) => a + b
 
 function Overlay() {
 	const [latestScores, setLatestScores] = useState<
@@ -154,14 +164,30 @@ function Overlay() {
 			setLevelId(parseLevelHash(data.selected_level?.level_id) || '')
 
 			setDiff(TADifficulty[data.selected_difficulty || 0] as Difficulty)
-		}
+		},
 	})
 
-	const teamEuropeScore = rosterEurope.map((id) => latestScores[id]?.data.score).reduce((a, b) => a + b, 0)
-	const teamNorthAmericaScore = rosterNorthAmerica.map((id) => latestScores[id]?.data.score).reduce((a, b) => a + b, 0)
+	const teamEuropeScore = rosterEurope
+		.map((id) => latestScores[id]?.data.score)
+		.reduce(sum, 0)
+	const teamNorthAmericaScore = rosterNorthAmerica
+		.map((id) => latestScores[id]?.data.score)
+		.reduce(sum, 0)
 
-	const teamEuropeAvgAcc = rosterEurope.map((id) => latestScores[id]?.data.accuracy).reduce((a, b) => a + b, 0) / rosterEurope.length
-	const teamNorthAmericaAvgAcc = rosterNorthAmerica.map((id) => latestScores[id]?.data.accuracy).reduce((a, b) => a + b, 0) / rosterNorthAmerica.length
+	const teamEuropeMisses = rosterEurope
+		.map((id) => latestScores[id]?.data.notesMissed)
+		.reduce(sum, 0)
+	const teamNorthAmericaMisses = rosterNorthAmerica
+		.map((id) => latestScores[id]?.data.notesMissed)
+		.reduce(sum, 0)
+
+	const teamEuropeAvgAcc =
+		rosterEurope.map((id) => latestScores[id]?.data.accuracy).reduce(sum, 0) /
+		rosterEurope.length
+	const teamNorthAmericaAvgAcc =
+		rosterNorthAmerica
+			.map((id) => latestScores[id]?.data.accuracy)
+			.reduce(sum, 0) / rosterNorthAmerica.length
 
 	const [teamEuropePoints, setTeamEuropePoints] = useState(0)
 	const [teamNorthAmericaPoints, setTeamNorthAmericaPoints] = useState(0)
@@ -170,7 +196,7 @@ function Overlay() {
 		onData(data) {
 			setTeamEuropePoints(data['EU'])
 			setTeamNorthAmericaPoints(data['NA'])
-		}
+		},
 	})
 
 	return (
@@ -181,6 +207,9 @@ function Overlay() {
 					<LogoWithScore
 						pointsNa={teamNorthAmericaPoints || 0}
 						pointsEu={teamEuropePoints || 0}
+						pointsMax={4}
+
+						category='Challenge'
 					/>
 					<TeamName>EUROPE</TeamName>
 				</div>
@@ -194,6 +223,10 @@ function Overlay() {
 
 						if (!signupPlayer) return null
 
+						const isMvp = scoreForPlayer?.data.songPosition > 5 && Math.max(
+							...[...rosterEurope, ...rosterNorthAmerica].map((id) => latestScores[id]?.data.score || 0)
+						) === scoreForPlayer?.data.score
+
 						return (
 							<Player
 								key={id}
@@ -204,9 +237,10 @@ function Overlay() {
 								accuracy={scoreForPlayer?.data.accuracy}
 								avatarLink={`https://cdn.scoresaber.com/avatars/${id}.jpg`}
 								platformId={id}
-
 								unmuted={i === 0}
 								streamEnabled
+
+								isMvp={isMvp}
 							/>
 						)
 					})}
@@ -218,6 +252,10 @@ function Overlay() {
 						const signupPlayer = getSignupPlayer(id)
 
 						if (!signupPlayer) return null
+
+						const isMvp = scoreForPlayer?.data.songPosition > 5 && Math.max(
+							...[...rosterEurope, ...rosterNorthAmerica].map((id) => latestScores[id]?.data.score || 0)
+						) === scoreForPlayer?.data.score
 
 						return (
 							<Player
@@ -231,9 +269,10 @@ function Overlay() {
 								platformId={id}
 								isTop={is3v3}
 								isRight={!is3v3}
-
 								unmuted={false}
 								streamEnabled
+
+								isMvp={isMvp}
 							/>
 						)
 					})}
@@ -245,9 +284,14 @@ function Overlay() {
 				leftTeamAccuracy={teamNorthAmericaAvgAcc || 0}
 				rightTeamScore={teamEuropeScore || 0}
 				rightTeamAccuracy={teamEuropeAvgAcc || 0}
-
-				mapHash={levelId}	
+				leftTeamMisses={teamNorthAmericaMisses || 0}
+				rightTeamMisses={teamEuropeMisses || 0}
+				mapHash={levelId}
 				diff={diff}
+
+				mapProgress={latestScores[rosterEurope[0]]?.data.songPosition || 0}
+
+				rankBy='misses'
 			/>
 		</div>
 	)
